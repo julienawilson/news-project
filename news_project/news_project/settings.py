@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'news_project',
+    'articles',
+    'profiles'
 ]
 
 MIDDLEWARE = [
@@ -78,8 +81,15 @@ WSGI_APPLICATION = 'news_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'newssitedb',
+        'USER': os.environ.get('DB_USER', ''),
+        'PASSWORD': os.environ.get("DB_PASSWORD", ''),
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+        'TEST': {
+            'NAME': 'IMAGER_TEST_DB'
+        }
     }
 }
 
