@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+from django.core.mail import send_mail
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,6 +27,7 @@ SECRET_KEY = 'dtou6-c)r2@t$p2tudrq2gjy92wsfdkst2yng^5y-akom$$f13'
 DEBUG = True
 
 ACCOUNT_ACTIVATION_DAYS = 7
+LOGIN_REDIRECT_URL = 'home'
 
 
 ALLOWED_HOSTS = []
@@ -131,3 +133,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+
+# Email Settings
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'julienawilson@gmail.com'
+EMAIL_HOST_PASSWORD = os.environ.get('EM_PASS', '')
+SERVER_EMAIL = 'julienawilson@gmail.com'
+DEFAULT_FROM_EMAIL = "News Project"
