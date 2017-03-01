@@ -16,11 +16,14 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from news_project.views import HomeView
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view(), name='home'),
-    url(r'^articles/', include("articles.urls"))
-
+    url(r'^articles/', include("articles.urls")),
+    url(r'^registration/', include("registration.backends.hmac.urls")),
+    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
 
 ]
