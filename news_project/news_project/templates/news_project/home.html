@@ -1,0 +1,15 @@
+{% extends "news_project/base.html" %}
+
+{% block content %}
+
+<div id='articles'>
+    {% for article in articles %}
+        <div class='article'>
+            <h3 class='article-title'><a href="{{ article.link }}">{{ article.title }}</a></h3>
+            <p><a href="{% url 'article_detail' article.id %}">Comments</a></p>
+        </div>
+        <br>
+    {% endfor %}
+</div>
+
+{% endblock %}

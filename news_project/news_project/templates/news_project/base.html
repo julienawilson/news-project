@@ -1,0 +1,18 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wire Corp</title>
+</head>
+<body>
+    <nav>
+    <ul>
+        <li class='nav_link'><a href="{% url 'home' %}">HOME</a></li>
+        <li class='nav_link'><a href="{% url 'post_article' %}">Post Article</a></li>
+    </ul>
+    </nav>
+{% block content %}
+{% endblock %}
+</body>
+</html>

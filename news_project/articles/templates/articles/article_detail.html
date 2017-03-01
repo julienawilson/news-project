@@ -1,0 +1,15 @@
+{% extends "news_project/base.html" %}
+
+{% block content %}
+
+<div id='articles'>
+        <div class='article'>
+            <h3 class='article-title'><a href="{{ article.link }}">{{ article.title }}</a></h3>
+        </div>
+        <div>
+            <h3>We'll stick some comments down here</h3>
+        </div>
+        <br>
+</div>
+
+{% endblock %}
