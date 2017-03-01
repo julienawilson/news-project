@@ -1,4 +1,4 @@
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 from django.utils import timezone
 from django.shortcuts import redirect
 
@@ -18,3 +18,9 @@ class PostArticleView(CreateView):
         article.date_submitted = timezone.now()
         article.save()
         return redirect('home')
+
+
+class ArticleDetail(DetailView):
+
+    model = Article
+    template_name = "articles/article_detail.html"
