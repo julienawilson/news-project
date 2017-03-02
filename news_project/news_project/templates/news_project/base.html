@@ -1,24 +1,95 @@
-{% load staticfiles %}
 
 <!DOCTYPE html>
-<html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en">
 <head>
-    <title>Wire Corp</title>
+<meta charset="utf-8">
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %} Wire Corp {% endblock %}</title>
+ 
+<script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:1487720919,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"68cdce5ddf92e710abaf6bc0ee5997eb",petok:"b9a47949cb3a8bb6cc63a96eec96aee8a84fd07f-1488408897-1800",zone:"zurb.com",rocket:"m",apps:{}}];document.write('<script type="text/javascript" src="//ajax.cloudflare.com/cdn-cgi/nexp/dok3v=f2befc48d1/cloudflare.min.js"><'+'\/script>');}}catch(e){};
+//]]>
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/normalize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel='stylesheet' type='text/css'>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 </head>
 <body>
-    <nav>
-    <ul>
-        <li class='nav_link'><a href="{% url 'home' %}">HOME</a></li>
-        <li class='nav_link'><a href="{% url 'post_article' %}">Post Article</a></li>
+ 
+<div class="row">
+<div class="large-12 columns">
+<div class="nav-bar right">
+<ul class="button-group">
+        <li class='button'><a href="{% url 'home' %}">HOME</a></li>
+        <li class='button'><a href="{% url 'post_article' %}">Post Article</a></li>
         {% if user.is_authenticated %}
-        <li class='nav_link'><a href="{% url 'logout' %}">Logout</a></li>
+        <li class='button'><a href="{% url 'logout' %}">Logout</a></li>
         {% else %}
-        <li class='nav_link'><a href="{% url 'login' %}">Login</a></li>
-        <li class='nav_link'><a href="{% url 'registration_register' %}">Register</a></li>
+        <li class='button'><a href="{% url 'login' %}">Login</a></li>
+        <li class='button'><a href="{% url 'registration_register' %}">Register</a></li>
         {% endif %}
-    </ul>
-    </nav>
+</ul>
+</div>
+<h1>The Core<small>Its like a scoop on the inside</small></h1>
+<hr/>
+</div>
+</div>
+ 
+ 
+<div class="row">
+ 
+<div class="large-9 columns" role="content">
 {% block content %}
 {% endblock %}
+</div>
+ 
+ 
+<aside class="large-3 columns">
+<h5>Categories</h5>
+<ul class="side-nav">
+<li><a href="#">News</a></li>
+<li><a href="#">Code</a></li>
+<li><a href="#">Design</a></li>
+<li><a href="#">Fun</a></li>
+<li><a href="#">Weasels</a></li>
+</ul>
+<div class="panel">
+<h5>Featured</h5>
+<p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
+<a href="#">Read More &rarr;</a>
+</div>
+</aside>
+ 
+</div>
+ 
+ 
+<footer class="row">
+<div class="large-12 columns">
+<hr/>
+<div class="row">
+<div class="large-6 columns">
+<p>&copy; Copyright no one at all. Go to town.</p>
+</div>
+<div class="large-6 columns">
+<ul class="inline-list right">
+<li><a href="#">Link 1</a></li>
+<li><a href="#">Link 2</a></li>
+<li><a href="#">Link 3</a></li>
+<li><a href="#">Link 4</a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+  </script>
 </body>
 </html>
