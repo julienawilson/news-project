@@ -3,13 +3,16 @@
 {% block content %}
 
 <div id='articles'>
+<ol>
     {% for article in articles %}
-        <div class='article'>
+        <li class='article'>
             <h3 class='article-title'><a href="{{ article.link }}">{{ article.title }}</a></h3>
+            <p class='short_desc'>{{ article.short_desc }}</p>
             <p><a href="{% url 'article_detail' article.id %}">Comments</a></p>
-        </div>
+        </li>
         <br>
     {% endfor %}
+</ol>
 </div>
 
 {% endblock %}
