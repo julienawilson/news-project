@@ -1,9 +1,20 @@
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, TemplateView
 from django.utils import timezone
 from django.shortcuts import redirect
 
 from articles.models import Article
 from articles.forms import ArticleForm
+
+
+class TagView(TemplateView):
+
+    template_name = "articles/tag_list.html"
+
+    def get_context_data(self, tag):
+        """Extending get_context_data method to add our data."""
+        articles = Article.objects.filter(tags__slug=tag).all()
+        return {'articles': articles,
+                'tag': tag}
 
 
 class PostArticleView(CreateView):

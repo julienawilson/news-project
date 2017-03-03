@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from taggit.managers import TaggableManager
 
 
 class Article(models.Model):
@@ -11,3 +12,4 @@ class Article(models.Model):
     link = models.CharField(max_length=255)
     votes = models.IntegerField(default=1)
     date_submitted = models.DateTimeField(default=timezone.now)
+    tags = TaggableManager()
