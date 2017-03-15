@@ -2,6 +2,9 @@ from django.views.generic import CreateView, DetailView, TemplateView
 from django.utils import timezone
 from django.shortcuts import redirect
 
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from articles.serializers import ArticleListSerializer
+
 from articles.models import Article
 from articles.forms import ArticleForm
 
@@ -35,3 +38,17 @@ class ArticleDetail(DetailView):
 
     model = Article
     template_name = "articles/article_detail.html"
+
+
+class ArticleListAPIView(ListCreateAPIView):
+    """List all articles, create new ones."""
+
+    queryset = Article.objects.all()
+    serializer_class = ArticleListSerializer
+
+
+class ArticleDetailAPIView(RetrieveUpdateDestroyAPIView):
+    """View, edit, delete individual Articles."""
+
+    queryset = Article.objects.all()
+    serializer_class = ArticleListSerializer
